@@ -10,3 +10,5 @@ urlpatterns = [
     path('', include(router_perem.urls)),
 ]
 #----------
+
+# Тест 123
