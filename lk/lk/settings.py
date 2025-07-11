@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework', # установил restframework
     'rest_framework.authtoken', # для аутентификации по токену
     'rest_framework_simplejwt', # для JWT аутентификации (Часть 5)
+    'rest_framework_simplejwt.token_blacklist', # для JWT логаута. Прикол в том, что мы не можем разлогинить свой токен. Его нужно в чс кинуть
 ]
 
 MIDDLEWARE = [
@@ -156,4 +157,7 @@ CORS_ALLOWED_ORIGINS = [
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "UPDATE_LAST_LOGIN": False,
 }

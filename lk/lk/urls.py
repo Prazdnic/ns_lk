@@ -31,7 +31,20 @@ urlpatterns = [
     path('', include('users.urls')),
 
     # для JWT аутентификации (Часть 5)
+    # Отправляем
+    # {
+    # "username": "1513069426",
+    # "password": "321"
+    # }
+    # В ответ нам приходит аксесс токен и рефреш токен
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+
+    # для обновления токена (Часть 6)
+    # Отправляем
+    # {
+    # "refresh": "<тут рефреш токен>"
+    # }
+    # В ответ нам приходит аксесс токен и рефреш токен тоже
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # ---------------------
 
