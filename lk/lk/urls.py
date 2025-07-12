@@ -48,4 +48,8 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # ---------------------
 
+
+    path('', include('katalogi.urls')), 
+    path('', include('tseny.urls')),    
+
 ]

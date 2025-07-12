@@ -2,7 +2,7 @@ from rest_framework import viewsets, permissions, exceptions, status
 from .serializator import CustomUser_Serializator, ProfileCustomUser_Serializator
 # удалили импорт нашей модели и делаем более универсальный способ к обращению к модели пользователя
 from django.contrib.auth import get_user_model
-# Вместе со status добавили в 5й части для логаута
+# Вместе со status добавили в 6й части для логаута
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response

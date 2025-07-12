@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken', # для аутентификации по токену
     'rest_framework_simplejwt', # для JWT аутентификации (Часть 5)
     'rest_framework_simplejwt.token_blacklist', # для JWT логаута. Прикол в том, что мы не можем разлогинить свой токен. Его нужно в чс кинуть
+    'katalogi.apps.KatalogiConfig',
+    'tseny.apps.TsenyConfig',
 ]
 
 MIDDLEWARE = [
