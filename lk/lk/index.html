@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список с авторизацией</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Иконки Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .auth-dropdown {
+            min-width: 250px;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навбар с авторизацией -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-list-check"></i> МойСписок
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-house"></i> Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-collection"></i> Каталог</a>
+                    </li>
+                </ul>
+                
+                <!-- Блок авторизации -->
+                <div class="d-flex">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="authDropdown" 
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i> Войти
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end auth-dropdown" aria-labelledby="authDropdown">
+                            <form class="px-2 py-1">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="email@example.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Пароль</label>
+                                    <input type="password" class="form-control" id="password">
+                                </div>
+                                <div class="mb-2 form-check">
+                                    <input type="checkbox" class="form-check-input" id="remember">
+                                    <label class="form-check-label" for="remember">Запомнить меня</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Войти</button>
+                                <div class="text-center mt-2">
+                                    <a href="#" class="text-decoration-none">Забыли пароль?</a>
+                                </div>
+                            </form>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-center" href="#">
+                                Нет аккаунта? <strong>Зарегистрируйтесь</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="container my-5">
+        <div class="row mb-4">
+            <div class="col">
+                <h1><i class="bi bi-card-list"></i> Список элементов</h1>
+                <p class="text-muted">Показано 8 из 24 элементов</p>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> Добавить
+                </button>
+            </div>
+        </div>
+
+        <!-- Список в виде карточек -->
+        <div>
+           {% comment %}  <!-- Элемент 1 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Изображение">
+                    <div class="card-body">
+                        <h5 class="card-title">Название элемента 1</h5>
+                        <p class="card-text">Краткое описание элемента списка. Можно добавить несколько строк текста.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">Категория 1</small>
+                            <span class="badge bg-primary">Новый</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="#" class="btn btn-sm btn-outline-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Элемент 2 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Изображение">
+                    <div class="card-body">
+                        <h5 class="card-title">Название элемента 2</h5>
+                        <p class="card-text">Другое описание для демонстрации разного содержимого карточек.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">Категория 2</small>
+                            <span class="badge bg-success">Популярный</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="#" class="btn btn-sm btn-outline-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Элемент 3 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Изображение">
+                    <div class="card-body">
+                        <h5 class="card-title">Длинное название элемента 3</h5>
+                        <p class="card-text">Более подробное описание, занимающее несколько строк текста для демонстрации.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">Категория 1</small>
+                            <span class="badge bg-warning text-dark">Ограниченный</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="#" class="btn btn-sm btn-outline-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>{% endcomment %}
+
+            {% if object_list %}
+
+            
+                {% for product in object_list %}
+                
+                    <p>{{ product.nomenklatura }} - {{ product.tsena }}</p>
+                    <br>
+                {% endfor %}
+                   
+
+            {% endif %}
+
+        </div> 
+
+       
+
+        <!-- Пагинация -->
+        <nav class="mt-5">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Назад</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Вперед</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="text-muted mb-0">© 2023 МойСписок. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

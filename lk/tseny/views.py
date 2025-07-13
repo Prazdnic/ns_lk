@@ -11,6 +11,9 @@ from tseny.models import Tseny
 from .permissions import IsAdminOrReadOnly
 
 
+from django.views.generic.list import ListView 
+
+
 
 class StandartResultSetPagination(PageNumberPagination):
     page_size = 10
@@ -59,3 +62,12 @@ class TsenyViewSet(viewsets.ModelViewSet):
                 return Response(status=status.HTTP_400_BAD_REQUEST)
         except Exception as ex:
             return Response(data={'error':ex.__str__}, status = status.HTTP_400_BAD_REQUEST)
+
+
+
+
+class NomenklaturaView(ListView):
+    model = Tseny
+    template_name = 'index.html'
+
+    

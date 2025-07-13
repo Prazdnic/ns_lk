@@ -65,7 +65,7 @@ ROOT_URLCONF = 'lk.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ BASE_DIR / 'lk' ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

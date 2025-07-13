@@ -19,6 +19,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+from tseny.views import NomenklaturaView
+
 # для JWT аутентификации (Часть 5)
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -27,6 +30,10 @@ from rest_framework_simplejwt.views import (
 # ---------------------
 
 urlpatterns = [
+
+
+    path('', NomenklaturaView.as_view(), name = 'index'),
+
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
 

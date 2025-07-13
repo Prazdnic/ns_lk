@@ -9,5 +9,5 @@ router.register(r'api/v1/products_group', GruppaNomenklaturyViewSet, basename = 
 
 
 urlpatterns = [
-    path('', include(router.urls)),    
+   path('', include(router.urls)),    
 ]

@@ -4,7 +4,7 @@ from rest_framework import viewsets, permissions
 from .serializers import NomenklaturaSerializer, GruppaNomenklaturySerializer
 from .models import Nomenklatura, GruppaNomenklatury
 
-
+from django.views.generic.list import ListView 
 
 # Create your views here.
 class NomenklaturaViewSet(viewsets.ModelViewSet):
@@ -19,5 +19,4 @@ class GruppaNomenklaturyViewSet(viewsets.ModelViewSet):
     queryset = GruppaNomenklatury.objects.all()
     serializer_class = GruppaNomenklaturySerializer
     permission_classes = [permissions.IsAdminUser]
-
 
