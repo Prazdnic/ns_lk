@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
 
 from pathlib import Path
 
@@ -128,6 +129,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# добавили для выгрузки картинок
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -144,6 +149,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',  # аутентификация по логину/паролю, присваивается и возвращается ид сессии, потом по ид сессии можно зайти без логина/пароля
         'rest_framework_simplejwt.authentication.JWTAuthentication', # в часть 5 настраиваем jwt аутентификацию
     ],
+    # собственный обработчик ошибок
+    'EXCEPTION_HANDLER': 'lk.exceptions.custom_exception_handler',
+    'NON_FIELD_ERRORS_KEY': 'error',
 
 
 }
